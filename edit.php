@@ -6,11 +6,11 @@ include_once("config.php");
 if (isset($_POST['update'])) {
     $id = $_POST['id'];
     $nama = $_POST['nama'];
-    $nidn = $_POST['nidn'];
-    $jenjang_pendidikan = $_POST['jenjang_pendidikan'];
+    $nim = $_POST['nim'];
+    $program_studi = $_POST['program_studi'];
 
     // update user data
-    $result = mysqli_query($mysqli, "UPDATE dosen SET nama='$nama',nidn='$nidn',jenjang_pendidikan='$jenjang_pendidikan' WHERE id=$id");
+    $result = mysqli_query($mysqli, "UPDATE mahasiswa SET nama='$nama',nim='$nim',program_studi='$program_studi' WHERE id=$id");
 
     // Redirect to homepage to display updated user in list
     header("Location: index.php");
@@ -22,18 +22,18 @@ if (isset($_POST['update'])) {
 $id = $_GET['id'];
 
 // Fetech user data based on id
-$result = mysqli_query($mysqli, "SELECT * FROM dosen WHERE id=$id");
+$result = mysqli_query($mysqli, "SELECT * FROM mahasiswa WHERE id=$id");
 
 while ($user_data = mysqli_fetch_array($result)) {
     $nama = $user_data['nama'];
-    $nidn = $user_data['nidn'];
-    $jenjang_pendidikan = $user_data['jenjang_pendidikan'];
+    $nim = $user_data['nim'];
+    $program_studi = $user_data['program_studi'];
 }
 ?>
 <html>
 
 <head>
-    <title>Edit Data Dosen</title>
+    <title>Edit Data Mahasiswa</title>
 </head>
 
 <body>
@@ -47,12 +47,12 @@ while ($user_data = mysqli_fetch_array($result)) {
                 <td><input type="text" name="nama" value=<?php echo $nama; ?>></td>
             </tr>
             <tr>
-                <td>NIDN</td>
-                <td><input type="text" name="nidn" value=<?php echo $nidn; ?>></td>
+                <td>NIM</td>
+                <td><input type="text" name="nim" value=<?php echo $nim; ?>></td>
             </tr>
             <tr>
-                <td>Jenjang Pendidikan</td>
-                <td><input type="text" name="jenjang_pendidikan" value=<?php echo $jenjang_pendidikan; ?>></td>
+                <td>Program Studi</td>
+                <td><input type="text" name="program_studi" value=<?php echo $program_studi; ?>></td>
             </tr>
             <tr>
                 <td><input type="hidden" name="id" value=<?php echo $_GET['id']; ?>></td>

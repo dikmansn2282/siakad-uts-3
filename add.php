@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>Tambah Dosen</title>
+    <title>Tambah Mahasiswa</title>
 </head>
 
 <body>
@@ -15,12 +15,12 @@
                 <td><input type="text" name="nama"></td>
             </tr>
             <tr>
-                <td>NIDN</td>
-                <td><input type="text" name="nidn"></td>
+                <td>NIM</td>
+                <td><input type="text" name="nim"></td>
             </tr>
             <tr>
-                <td>Jenjang Pendidikan</td>
-                <td><input type="text" name="jenjang_pendidikan"></td>
+                <td>Program Studi</td>
+                <td><input type="text" name="program_studi"></td>
             </tr>
             <tr>
                 <td></td>
@@ -34,17 +34,17 @@
     // Check If form submitted, insert form data into users table.
     if (isset($_POST['Submit'])) {
         $nama = $_POST['nama'];
-        $nidn = $_POST['nidn'];
-        $jenjang_pendidikan = $_POST['jenjang_pendidikan'];
+        $nim = $_POST['nim'];
+        $program_studi = $_POST['program_studi'];
 
         // include database connection file
         include_once("config.php");
 
         // Insert user data into table
-        $result = mysqli_query($mysqli, "INSERT INTO dosen(nama,nidn,jenjang_pendidikan) VALUES('$nama','$nidn','$jenjang_pendidikan')");
+        $result = mysqli_query($mysqli, "INSERT INTO mahasiswa(nama,nim,program_studi) VALUES('$nama','$nim','$program_studi')");
 
         // Show message when user added
-        echo "Data Dosen berhasil ditambahkan. <a href='index.php'>Lihat Data Dosen</a>";
+        echo "Data Mahasiswa berhasil ditambahkan. <a href='index.php'>Lihat Data Mahasiswa</a>";
     }
     ?>
 </body>
