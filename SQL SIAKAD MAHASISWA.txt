@@ -1,0 +1,11 @@
+create database siakad;
+ 
+use siakad;
+ 
+CREATE TABLE `mahasiswa` (
+  `id` int(11) NOT NULL auto_increment,
+  `nama` varchar(255),
+  `nim` char(10),
+  `program_studi` varchar(255),
+  PRIMARY KEY  (`id`)
+);
